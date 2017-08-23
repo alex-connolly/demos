@@ -1,0 +1,32 @@
+
+class Vote {
+
+    // each vote is a smart contract
+    // can be updated
+    // election stores the address of each vote
+
+    constructor(){
+        
+    }
+
+    voter address
+    vote hash
+    delegate address
+
+    // votes can be cast an infinite number of times
+    // TODO: DOS considerations? -- who pays?
+    export castVote(preferences map[string]int){
+        enforceVoter()
+        this.preferences = NewHash(preferences)
+    }
+
+    export delegateVote(to address){
+        enforceVoter()
+
+    }
+
+    enforceVoter(){
+        require(msg.sender == voter)
+    }
+
+}

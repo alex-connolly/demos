@@ -1,0 +1,30 @@
+
+import "genesis"
+
+contract Demos {
+
+    class Parameters {
+        blockTime int
+    }
+
+    defaultParameters Parameters
+
+    export createElection(vox [byte]){
+        require(len(vox) != 0)
+        genesis.Fork()
+    }
+
+    export changeDefaultParameters(p Parameters){
+        requireOwner()
+        this.defaultParameters = p
+    }
+
+    export changeOwner(o address){
+        requireOwner()
+        this.owner = o
+    }
+
+    requireOwner(){
+        require(msg.sender == owner)
+    }
+}

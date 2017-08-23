@@ -1,0 +1,28 @@
+
+contract Election {
+
+    // map voter addresses to vote addresses
+    voters map[address]address
+    owner address
+    allowsDelegation bool
+
+    constructor(){
+        this.owner = msg.sender
+    }
+
+    class Voter {
+        voted bool
+        delegate address
+        vote Vote
+    }
+
+    allowVote(voter address){
+        require(msg.sender == owner)
+
+    }
+
+    getVotes(){
+
+    }
+
+}
